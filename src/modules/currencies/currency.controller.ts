@@ -10,7 +10,7 @@ export class CurrencyController {
 	constructor(private readonly service: CurrencyService) {
 	}
 
-	@Get('/corgi')
+	@Get('/cor')
 	@ApiOperation({
 		summary: 'Getting currency by symbol',
 	})

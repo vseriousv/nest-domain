@@ -1,7 +1,5 @@
 import { SaveExchangePort } from '../../../domain/ports/secondary/save-exchange.port';
 import { ExchangeEntity } from '../../../domain/entities/exchange.entity';
-import { Inject, Injectable } from '@nestjs/common';
-import { ExchangeOrmEntity } from '../entities/exchange.orm-entity';
 import { ExchangeMapper } from '../mappers/exchange.mapper';
 
 export class PostgresAdapter implements SaveExchangePort {

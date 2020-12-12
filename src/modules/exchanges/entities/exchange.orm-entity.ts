@@ -1,7 +1,4 @@
-import { BelongsTo, Column, CreatedAt, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { ApiKeyEntity } from '../../api-keys/entities/api-key.entity';
-import { RefKeyEntity } from '../../ref-keys/entities/ref-key.entity';
-
+import { Column, CreatedAt, Model, Table, UpdatedAt } from 'sequelize-typescript';
 
 @Table({
 	tableName: 'exchanges',
@@ -68,17 +65,9 @@ export class ExchangeOrmEntity extends Model<ExchangeOrmEntity> {
 	@Column({ field: 'created_at' })
 	createdAt: Date;
 
-	@CreatedAt
+	@UpdatedAt
 	@Column({ field: 'updated_at' })
 	updatedAt: Date;
-
-	@ForeignKey(() => ApiKeyEntity)
-	@Column({ field: 'api_key_id' })
-	apiKeyId: number;
-
-	@ForeignKey(() => RefKeyEntity)
-	@Column({ field: 'ref_key_id' })
-	refKeyId: number;
 
 	@Column({ field: 'partner_profit' })
 	partnerProfit: number;
@@ -98,9 +87,10 @@ export class ExchangeOrmEntity extends Model<ExchangeOrmEntity> {
 	@Column({ field: 'partner_paid_out' })
 	partnerPaidOut: boolean;
 
-	@BelongsTo(() => ApiKeyEntity)
-	apiKey: ApiKeyEntity;
+	@Column
+	apiKeyId: number;
 
-	@BelongsTo(() => RefKeyEntity)
-	refKey: RefKeyEntity;
+	@Column
+	refKeyId: number;
+
 }
